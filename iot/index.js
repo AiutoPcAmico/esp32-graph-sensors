@@ -27,7 +27,7 @@ export function initDevice() {
     device = awsIot.device({
         keyPath: `./certs/${secretMasterName}.private.pem.key`,
         certPath: `./certs/${secretMasterName}.certificate.pem.crt`,
-        caPath: `./AmazonRootCA1.pem`,
+        caPath: `./certs/AmazonRootCA1.pem`,
         host: host
     });
 
