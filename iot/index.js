@@ -3,11 +3,19 @@ import awsIot from 'aws-iot-device-sdk';
 import AWS from 'aws-sdk';
 import { connectToDb, retrieveData, saveToDb } from './dbConnection.js';
 import express from 'express';
+import cors from 'cors';
 
 const apiproject = express();
 const port = 16123
 
-apiproject.get('/', async (req, res) => {
+
+
+// Then pass these options to cors:
+apiproject.use(cors({ origin: '*' }));
+
+
+
+apiproject.get('/fetchsensors', async (req, res) => {
     const data = await retrieveData()
     res.send(data);
 });
